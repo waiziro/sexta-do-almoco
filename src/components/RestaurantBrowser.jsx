@@ -51,10 +51,10 @@ export default function RestaurantBrowser({ onNominate, nominatedIds }) {
       <div className="restaurant-grid">
         {filtered.map(r => (
           <RestaurantCard
-            key={r.place_id}
+            key={r.id || r.place_id}
             restaurant={r}
             onNominate={onNominate}
-            isNominated={nominatedIds.includes(r.place_id)}
+            isNominated={nominatedIds.includes(r.id) || nominatedIds.includes(r.place_id)}
           />
         ))}
       </div>

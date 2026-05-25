@@ -182,7 +182,10 @@ export default function ManageRestaurants({ onBack }) {
             <div className="manage-item-info">
               <div className="manage-item-name">{r.name}</div>
               <div className="manage-item-meta">
-                <span className="star">★</span> {r.rating} · {r.cuisine} · {r.avg_price}/person · 🚶 {r.walk_time} min
+                <span className="star">★</span> {r.rating}
+                {r.cuisine ? ` · ${r.cuisine}` : ''}
+                {r.avg_price ? ` · ${r.avg_price}/person` : ''}
+                {r.walk_time ? ` · 🚶 ${r.walk_time} min` : ''}
               </div>
               {r.address && <div className="manage-item-address">{r.address}</div>}
             </div>

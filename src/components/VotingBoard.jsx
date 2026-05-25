@@ -46,7 +46,7 @@ export default function VotingBoard({ suggestions, votes, myVote, onVote, sessio
                   <span>({s.review_count})</span>
                 </div>
                 <div style={{ fontSize: 13, color: 'var(--text-muted)', marginTop: 2 }}>
-                  {s.cuisine} · {s.avg_price}/person · 🚶 {s.walk_time} min
+                  {[s.cuisine, s.avg_price ? `${s.avg_price}/person` : null, s.walk_time ? `🚶 ${s.walk_time} min` : null].filter(Boolean).join(' · ')}
                 </div>
               </div>
             </div>

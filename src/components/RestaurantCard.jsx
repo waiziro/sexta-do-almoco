@@ -13,7 +13,9 @@ export default function RestaurantCard({ restaurant, onNominate, isNominated }) 
       <div className="card-body">
         <div className="card-header">
           <div className="card-name">{restaurant.name}</div>
-          <div className="card-walk">🚶 {restaurant.walk_time} min</div>
+          {restaurant.walk_time ? (
+            <div className="card-walk">🚶 {restaurant.walk_time} min</div>
+          ) : null}
         </div>
         <div className="card-meta">
           <span className="card-rating">
@@ -26,7 +28,11 @@ export default function RestaurantCard({ restaurant, onNominate, isNominated }) 
           <div className="card-address">{restaurant.address}</div>
         )}
         <div className="card-footer">
-          <div className="card-price">{restaurant.avg_price}/person</div>
+          {restaurant.avg_price ? (
+            <div className="card-price">{restaurant.avg_price}/person</div>
+          ) : (
+            <div className="card-price"></div>
+          )}
           {onNominate && (
             <button
               className={`btn-nominate ${isNominated ? 'nominated' : ''}`}

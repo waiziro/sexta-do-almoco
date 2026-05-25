@@ -74,6 +74,7 @@ export default function SessionPage({ code, participant, onLeave }) {
     try {
       await api.post(`/api/sessions/${code}/suggestions`, {
         ...restaurant,
+        place_id: restaurant.place_id || restaurant.id,
         suggested_by: participant.id
       });
       showToast(`${restaurant.name} nominated!`);
